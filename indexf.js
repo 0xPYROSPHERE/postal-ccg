@@ -10920,7 +10920,7 @@ function run(args = arguments_) {
     preMain();
 
     Module['onRuntimeInitialized']?.();
-
+    setMainLoop(func, 0, false, MainLoop.arg, true);
     if (shouldRunNow) callMain(args);
 
     postRun();
