@@ -32,11 +32,17 @@
         to {transform: rotate(360deg);}
       }
 
+      #preload-info {
+        color: white;
+        position: absolute;
+        transform: translate(-50%, -50%);
+      }
+
     </style>
     <script>
       window.fileMergerConfig = {
         files: [
-          {name: "index.data", parts: 41}
+          {name: "index.data", parts: 25}
         ],
         basePath: "data/",
         debug: true
@@ -49,6 +55,11 @@
     <div class="emscripten" id="status">Downloading POSTAL...</div>
     <div class="emscripten">
       <progress value="0" max="100" id="progress" hidden=1></progress>  
+    </div>
+    <div id="preload-info">
+      PRESS C TO FINISH LEVELS
+      PRESS SPACE TO RESTART
+      FULLSCREEN RECOMMENDED
     </div>
     <div class="emscripten_border">
       <canvas class="emscripten" id="canvas" oncontextmenu="event.preventDefault()" tabindex=-1 onclick="requestPointerLock()"></canvas>
@@ -124,12 +135,26 @@
       };
     </script>
     <script>
+      document.addEventListener("keydown", (e) => {
+        if (e.code == "KeyC") {
+          document.dispatchEvent(new KeyboardEvent("keydown", {
+            key: "F1",
+            code: "F1",
+            which: 112,
+            keyCode: 112,
+            bubbles: true,
+            cancelable: true
+          }));
+        }
+      });
+    </script>
+    <script>
       var completedPackage;
       fetch("data/index.data").then(response => response.blob()).then(data => {
         completedPackage = URL.createObjectURL(data);
         let mainScript = document.createElement("script");
         mainScript.async = true;
-        mainScript.src = "index2.js",
+        mainScript.src = "index3.min.js",
         document.body.append(mainScript);
       })
     </script>

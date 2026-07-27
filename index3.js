@@ -10928,6 +10928,7 @@ function run(args = arguments_) {
 
   if (Module['setStatus']) {
     Module['setStatus']('Running...');
+    document.getElementById("preload-info").style.display = "none";
     setTimeout(() => {
       setTimeout(() => Module['setStatus'](''), 1);
       doRun();
