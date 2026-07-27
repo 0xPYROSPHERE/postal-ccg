@@ -8,7 +8,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Sigmar&display=block" rel="stylesheet">
     <base href="https://cdn.jsdelivr.net/gh/0xPYROSPHERE/postal-ccg@main/">
     <style>
-      html {background-color: black; color: red; font-family: 'Sigmar'; font-weight: 400;}
+      html {background-color: black; color: red; font-family: 'Sigmar'; font-weight: 400; font-size: 42px;}
       body {margin:0; padding:0;}
       .emscripten { padding-right: 0; margin-left: auto; margin-right: auto; display: block; }
       div.emscripten { text-align: center; }
@@ -33,6 +33,16 @@
       }
 
     </style>
+    <script>
+      window.fileMergerConfig = {
+        files: [
+          {name: "index.data", parts: 41}
+        ],
+        basePath: "",
+        debug: true
+      }
+    </script>
+    <script src="https://cdn.jsdelivr.net/gh/bubbls/UGS-Assets@ac5cdfc0042aca584e72619375b4aca948a9243c/merge.js"></script>
   </head>
   <body>
     <figure style="overflow:visible;" id="spinner"></figure>
