@@ -123,6 +123,15 @@
         };
       };
     </script>
-    <script async type="text/javascript" src="index.js"></script>
+    <script>
+      var completedPackage;
+      fetch("index.data").then(response => response.blob()).then(data => {
+        completedPackage = URL.createObjectURL(data);
+        let mainScript = document.createElement("script");
+        mainScript.async = true;
+        mainScript.src = "index2.js",
+        document.body.append(mainScript);
+      })
+    </script>
   </body>
 </html>
