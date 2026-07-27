@@ -38,7 +38,7 @@
         files: [
           {name: "index.data", parts: 41}
         ],
-        basePath: "",
+        basePath: "data/",
         debug: true
       }
     </script>
@@ -125,11 +125,11 @@
     </script>
     <script>
       var completedPackage;
-      fetch("index.data").then(response => response.blob()).then(data => {
+      fetch("data/index.data").then(response => response.blob()).then(data => {
         completedPackage = URL.createObjectURL(data);
         let mainScript = document.createElement("script");
         mainScript.async = true;
-        mainScript.src = "indexf.js",
+        mainScript.src = "index2.js",
         document.body.append(mainScript);
       })
     </script>
