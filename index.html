@@ -35,6 +35,8 @@
       #preload-info {
         color: white;
         position: absolute;
+        top: 50%;
+        left: 50%;
         transform: translate(-50%, -50%);
       }
 
@@ -56,15 +58,15 @@
     <div class="emscripten">
       <progress value="0" max="100" id="progress" hidden=1></progress>  
     </div>
-    <div id="preload-info">
-      PRESS C TO FINISH LEVELS
-      PRESS SPACE TO RESTART
-      FULLSCREEN RECOMMENDED
-    </div>
     <div class="emscripten_border">
       <canvas class="emscripten" id="canvas" oncontextmenu="event.preventDefault()" tabindex=-1 onclick="requestPointerLock()"></canvas>
     </div>
     <div class="emscripten">
+    </div>
+    <div id="preload-info">
+      PRESS C TO FINISH LEVELS<br>
+      PRESS SPACE TO RESTART<br>
+      FULLSCREEN RECOMMENDED<br>
     </div>
     <script type='text/javascript'>
       var statusElement = document.getElementById('status');
@@ -135,6 +137,7 @@
       };
     </script>
     <script>
+      const info = document.getElementById("preload-info");
       document.addEventListener("keydown", (e) => {
         if (e.code == "KeyC") {
           document.dispatchEvent(new KeyboardEvent("keydown", {
@@ -145,6 +148,8 @@
             bubbles: true,
             cancelable: true
           }));
+        } else if (e.code == "F11") {
+          info.style.display == "none" && canvasElement.requestFullscreen();
         }
       });
     </script>
